@@ -7,7 +7,7 @@ export default function DefaultLayout() {
         <div>
             <Header />
             <div className="flex justify-center ">
-                <div className="w-[700px]">
+                <div className="w-[700px] mt-[50px]">
                     <Outlet />
                 </div>
             </div>

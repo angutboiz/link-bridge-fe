@@ -8,7 +8,7 @@ import { Button } from "antd";
 
 export default function CShowPost() {
     return (
-        <div className=" bg-[#ffc6c7] rounded-md mt-5 py-2">
+        <div className=" bg-[#fffffe] rounded-md mt-5 py-2 shadow-md">
             <div className="px-5">
                 <div className="flex gap-2">
                     <CAvatar />

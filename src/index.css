@@ -17,7 +17,7 @@ code {
 
 button {
     background-color: #ff8ba7;
-    color: #33272a;
+    color: #fff;
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
     border: none;
@@ -25,10 +25,17 @@ button {
     transition: background-color 0.3s;
 }
 
+button:hover {
+    background-color: #33272a;
+    color: white;
+}
+
 input {
     padding: 0.4rem 1rem;
     transition: border-color 0.3s;
     color: #33272a;
+    border: 1px solid #ffc6c7;
+    border-radius: 5px;
 }
 
 input:focus-visible {
@@ -68,4 +75,24 @@ textarea {
 
 textarea:focus-visible {
     outline: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #fffffe;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ffc6c7;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #ff8ba7;
 }

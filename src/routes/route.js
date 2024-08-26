@@ -6,6 +6,11 @@ import AdminLayout from "../layouts/AdminLayout";
 import Admin from "../pages/Admin";
 import Video from "../pages/Video";
 import Notify from "../pages/Notify";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import LoginLayout from "../layouts/LoginLayout";
+import Forgot from "../pages/Forgot";
+import OTP from "../pages/OTP";
 
 export const routers = [
     {
@@ -33,6 +38,28 @@ export const routers = [
             {
                 index: true,
                 element: <Admin />,
+            },
+        ],
+    },
+    {
+        path: "/auth",
+        element: <LoginLayout />,
+        children: [
+            {
+                index: true,
+                element: <Login />,
+            },
+            {
+                path: "/auth/register",
+                element: <Register />,
+            },
+            {
+                path: "/auth/forgot",
+                element: <Forgot />,
+            },
+            {
+                path: "/auth/otp",
+                element: <OTP />,
             },
         ],
     },
