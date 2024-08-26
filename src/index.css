@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Matemasie&display=swap");
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #faeee7;
+    color: #33272a;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+button {
+    background-color: #ff8ba7;
+    color: #33272a;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input {
+    padding: 0.4rem 1rem;
+    transition: border-color 0.3s;
+    color: #33272a;
+}
+
+input:focus-visible {
+    outline: none;
+    border: 1px solid #ff8ba7;
+}
+
+a.active {
+    color: #ff8ba7;
+    position: relative;
+}
+
+a.active::before {
+    content: "";
+    display: block;
+    height: 2px;
+    background-color: #ff8ba7;
+    position: absolute;
+    bottom: -8px;
+    width: 100%;
+}
+.matemasie-regular {
+    font-family: "Matemasie", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.matemasie {
+    font-family: "Matemasie", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+textarea {
+    resize: none;
+}
+
+textarea:focus-visible {
+    outline: none;
+}
