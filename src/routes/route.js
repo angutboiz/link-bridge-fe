@@ -11,6 +11,7 @@ import Register from "../pages/Register";
 import LoginLayout from "../layouts/LoginLayout";
 import Forgot from "../pages/Forgot";
 import OTP from "../pages/OTP";
+import VideoDetail from "../pages/components/VideoDetail";
 
 export const routers = [
     {
@@ -24,6 +25,10 @@ export const routers = [
             {
                 path: "/video",
                 element: <Video />,
+            },
+            {
+                path: "/video/:id",
+                element: <VideoDetail />,
             },
             {
                 path: "/notification",
