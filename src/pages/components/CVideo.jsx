@@ -35,7 +35,7 @@ export default function CVideo() {
                                     <div className="text-sm text-paragraph">
                                         <p className="">{item.origin_name}</p>
                                         <p className="text-headline">
-                                            {item.episode_current} | {item.time}
+                                            {item.episode_current} | {item.time}``
                                         </p>
                                         <p className="">{item.year}</p>
                                     </div>

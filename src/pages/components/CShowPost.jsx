@@ -30,17 +30,33 @@ export default function CShowPost() {
                     className="w-full h-full object-cover"
                 />
             </div>
-            <div className="flex justify-between items-center px-5 pt-2">
-                <Button className="flex items-center gap-1 text-text">
-                    <AiFillLike size={22} />2 Lượt thích
-                </Button>
-                <Button className="flex items-center gap-1 text-text">
-                    <FaCommentDots size={22} />
-                    235 Lượt bình luận
-                </Button>
-                <Button className="flex items-center gap-1 text-text">
-                    <FaShareAlt size={22} />1 Lượt share
-                </Button>
+            <div className="block md:hidden">
+                <div className="flex justify-between items-center px-5 pt-2 ">
+                    <Button className="flex items-center gap-3 text-text">
+                        <AiFillLike size={22} />2
+                    </Button>
+                    <Button className="flex items-center gap-3 text-text">
+                        <FaCommentDots size={22} />
+                        235
+                    </Button>
+                    <Button className="flex items-center gap-3 text-text">
+                        <FaShareAlt size={22} />1
+                    </Button>
+                </div>
+            </div>
+            <div className="md:block hidden">
+                <div className="flex justify-between items-center px-5 pt-2">
+                    <Button className="flex items-center gap-1 text-text">
+                        <AiFillLike size={22} />2 Lượt thích
+                    </Button>
+                    <Button className="flex items-center gap-1 text-text">
+                        <FaCommentDots size={22} />
+                        235 Lượt bình luận
+                    </Button>
+                    <Button className="flex items-center gap-1 text-text">
+                        <FaShareAlt size={22} />1 Lượt share
+                    </Button>
+                </div>
             </div>
         </div>
     );

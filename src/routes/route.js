@@ -12,6 +12,8 @@ import LoginLayout from "../layouts/LoginLayout";
 import Forgot from "../pages/Forgot";
 import OTP from "../pages/OTP";
 import VideoDetail from "../pages/components/VideoDetail";
+import PageNotFound from "../pages/PageNotFound";
+import Profile from "../pages/Profile";
 
 export const routers = [
     {
@@ -33,6 +35,14 @@ export const routers = [
             {
                 path: "/notification",
                 element: <Notify />,
+            },
+            {
+                path: "/profile",
+                element: <Profile />,
+            },
+            {
+                path: "*",
+                element: <PageNotFound />,
             },
         ],
     },
