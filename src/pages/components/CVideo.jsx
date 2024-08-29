@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Spin } from "antd";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 export default function CVideo() {
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(false);

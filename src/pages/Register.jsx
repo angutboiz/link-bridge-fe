@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { browserHistory } from "react-router";
 import * as yup from "yup";
 import { registerUserSchema } from "../Validations/userValidation";
 import { useFormik } from "formik";
 import Swal from "sweetalert2";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
+import { GoogleLogin } from "@react-oauth/google";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Register() {
     const [loading, setIsLoading] = useState(false);
+    const [capVal, setCapVal] = useState(null);
 
     const navigate = useNavigate();
     const fetchLogin = async (values) => {
@@ -102,6 +104,9 @@ export default function Register() {
                     {formik.errors.gender && formik.touched.gender && <p>{formik.errors.gender}</p>}
                 </div>
             </div>
+            <div className="">
+                <ReCAPTCHA sitekey="6LdxGvopAAAAALOqa3Ytk-IGNlYlfeOx6N1XHV8M" onChange={(val) => setCapVal(val)} />
+            </div>
 
             <div className="">
                 <div className="">
@@ -111,10 +116,29 @@ export default function Register() {
                 </div>
             </div>
 
-            <div className="border-[1px] border-[#dadde1]"></div>
-            <Link to="/auth" className="block text-center ">
-                <button className="bg-[#594a4e]">Đăng nhập nếu đã có tài khoản?</button>
-            </Link>
+            <div className="border-[1px] border-btn"></div>
+
+            <div className="flex gap-3">
+                <div className="flex-1">
+                    <GoogleLogin
+                        onSuccess={(credentialResponse) => {
+                            console.log(credentialResponse);
+                        }}
+                        onError={() => {
+                            Swal.fire({
+                                title: "Thất bại",
+                                text: "Đăng nhập thất bại",
+                                icon: "error",
+                            });
+                        }}
+                    />
+                </div>
+                <div className="flex-1 ">
+                    <Link to="/auth" className="block ">
+                        <button className="bg-[#cc6f85] w-full">Về trang đăng nhập</button>
+                    </Link>
+                </div>
+            </div>
         </form>
     );
 }

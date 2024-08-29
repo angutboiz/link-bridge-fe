@@ -1,4 +1,3 @@
-import { Children } from "react";
 import Home from "../pages/Home";
 
 import DefaultLayout from "../layouts/DefaultLayout";

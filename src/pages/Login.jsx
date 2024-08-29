@@ -7,7 +7,8 @@ import { useFormik } from "formik";
 import Swal from "sweetalert2";
 import Cookies from "js-cookie";
 import { LoadingOutlined } from "@ant-design/icons";
-
+import { GoogleLogin } from "@react-oauth/google";
+import { useGoogleOneTapLogin } from "@react-oauth/google";
 export default function Login() {
     const [loading, setIsLoading] = useState(false);
 
@@ -47,6 +48,7 @@ export default function Login() {
         },
     });
 
+
     return (
         <form onSubmit={formik.handleSubmit} className="register bg-[#fffffe] w-full p-5 space-y-3 rounded-md shadow-lg shadow-[#ffc6c7]">
             <div className="">
@@ -69,9 +71,27 @@ export default function Login() {
                 </Link>
             </div>
             <div className="border-[1px] border-btn"></div>
-            <Link to="/auth/register" className="block text-center ">
-                <button className="bg-[#cc6f85]">Tạo tài khoản mới</button>
-            </Link>
+            <div className="flex gap-3">
+                <div className="flex-1">
+                    <GoogleLogin
+                        onSuccess={(credentialResponse) => {
+                            console.log(credentialResponse);
+                        }}
+                        onError={() => {
+                            Swal.fire({
+                                title: "Thất bại",
+                                text: "Đăng nhập thất bại",
+                                icon: "error",
+                            });
+                        }}
+                    />
+                </div>
+                <div className="flex-1 ">
+                    <Link to="/auth/register" className="block ">
+                        <button className="bg-[#cc6f85] w-full">Tạo tài khoản mới</button>
+                    </Link>
+                </div>
+            </div>
         </form>
     );
 }
