@@ -19,7 +19,7 @@ export default function CPost() {
     };
 
     return (
-        <div className="bg-[#fffffe] rounded-md shadow-md">
+        <div className="">
             <div className="flex items-center gap-3 px-5 py-3">
                 <CAvatar />
                 <input placeholder="Bạn đang nghĩ gì, An?" className="flex-1 rounded-full placeholder-btn cursor-pointer hover:bg-bg" onClick={showModal} />

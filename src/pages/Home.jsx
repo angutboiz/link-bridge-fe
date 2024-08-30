@@ -4,7 +4,9 @@ import CShowPost from "./components/CShowPost";
 export default function Home() {
     return (
         <div className="px-2 py-5">
-            <CPost />
+            <div className="bg-[#fffffe] rounded-md shadow-md">
+                <CPost />
+            </div>
             <CShowPost />
         </div>
     );

@@ -9,20 +9,14 @@ import Cookies from "js-cookie";
 import { LoadingOutlined } from "@ant-design/icons";
 import { GoogleLogin } from "@react-oauth/google";
 import { useGoogleOneTapLogin } from "@react-oauth/google";
+import { postData } from "./api/fetchAPI";
 export default function Login() {
     const [loading, setIsLoading] = useState(false);
 
     const navigate = useNavigate();
     const fetchLogin = async () => {
-        const response = await fetch(`${process.env.REACT_APP_API_ENDPOINT}/auth/login`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formik.values),
-        });
+        const response = await postData("/auth/login", formik.values);
         const data = await response.json();
-        console.log(data);
         if (response.ok) {
             Cookies.set("token", data.token, { expires: 1 / 24 });
             navigate("/");
@@ -47,7 +41,6 @@ export default function Login() {
             fetchLogin();
         },
     });
-
 
     return (
         <form onSubmit={formik.handleSubmit} className="register bg-[#fffffe] w-full p-5 space-y-3 rounded-md shadow-lg shadow-[#ffc6c7]">

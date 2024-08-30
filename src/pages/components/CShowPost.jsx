@@ -8,7 +8,7 @@ import { Button } from "antd";
 
 export default function CShowPost() {
     return (
-        <div className=" bg-[#fffffe] rounded-md mt-5 py-2 shadow-md">
+        <div className=" bg-[#fffffe] rounded-md mt-4 py-2 shadow-md">
             <div className="px-5">
                 <div className="flex gap-2">
                     <CAvatar />
@@ -30,33 +30,17 @@ export default function CShowPost() {
                     className="w-full h-full object-cover"
                 />
             </div>
-            <div className="block md:hidden">
-                <div className="flex justify-between items-center px-5 pt-2 ">
-                    <Button className="flex items-center gap-3 text-text">
-                        <AiFillLike size={22} />2
-                    </Button>
-                    <Button className="flex items-center gap-3 text-text">
-                        <FaCommentDots size={22} />
-                        235
-                    </Button>
-                    <Button className="flex items-center gap-3 text-text">
-                        <FaShareAlt size={22} />1
-                    </Button>
-                </div>
-            </div>
-            <div className="md:block hidden">
-                <div className="flex justify-between items-center px-5 pt-2">
-                    <Button className="flex items-center gap-1 text-text">
-                        <AiFillLike size={22} />2 Lượt thích
-                    </Button>
-                    <Button className="flex items-center gap-1 text-text">
-                        <FaCommentDots size={22} />
-                        235 Lượt bình luận
-                    </Button>
-                    <Button className="flex items-center gap-1 text-text">
-                        <FaShareAlt size={22} />1 Lượt share
-                    </Button>
-                </div>
+            <div className="flex justify-between items-center px-5 pt-2 ">
+                <Button className="flex items-center gap-3 text-text">
+                    <AiFillLike size={22} />2
+                </Button>
+                <Button className="flex items-center gap-3 text-text">
+                    <FaCommentDots size={22} />
+                    235
+                </Button>
+                <Button className="flex items-center gap-3 text-text">
+                    <FaShareAlt size={22} />1
+                </Button>
             </div>
         </div>
     );

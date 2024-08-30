@@ -8,6 +8,7 @@ import { LoadingOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
 import { GoogleLogin } from "@react-oauth/google";
 import ReCAPTCHA from "react-google-recaptcha";
+import { postData } from "./api/fetchAPI";
 
 export default function Register() {
     const [loading, setIsLoading] = useState(false);
@@ -15,20 +16,16 @@ export default function Register() {
 
     const navigate = useNavigate();
     const fetchLogin = async (values) => {
-        const response = await fetch(`${process.env.REACT_APP_API_ENDPOINT}/auth/register`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(values),
-        });
+        const response = await postData("/auth/register", values);
         const data = await response.json();
+        const email = values.email;
         if (response.ok) {
             Swal.fire({
                 title: "Thành công",
                 text: data.msg,
                 icon: "success",
                 willClose: () => {
+                    localStorage.setItem("email", email);
                     navigate("/auth/otp");
                 },
             });
