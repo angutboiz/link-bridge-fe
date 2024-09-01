@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { IoHomeOutline } from "react-icons/io5";
 import { MdPersonalVideo } from "react-icons/md";
@@ -25,10 +25,12 @@ export default function Header() {
     };
 
     const token = Cookies.get("token");
-    // if (token !== undefined) {
-    //     const decoded = jwtDecode(token);
-    //     setUserId(decoded.user.id);
-    // }
+    useEffect(() => {
+        if (token !== undefined) {
+            const decoded = jwtDecode(token);
+            setUserId(decoded.user.id);
+        }
+    }, [token]);
 
     const handleLogout = () => {
         Cookies.remove("token");
@@ -63,7 +65,7 @@ export default function Header() {
                         <Popover
                             content={
                                 <div className="w-[200px]">
-                                    <Link to="/profile" className="w-full flex gap-2 items-center hover:bg-bg p-2 rounded-md">
+                                    <Link to={`/profile/${userId}`} className="w-full flex gap-2 items-center hover:bg-bg p-2 rounded-md">
                                         <FaUserAlt /> Profile
                                     </Link>
                                     <Link to="/help" className="w-full flex gap-2 items-center hover:bg-bg p-2 rounded-md">

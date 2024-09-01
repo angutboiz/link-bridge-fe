@@ -36,7 +36,7 @@ export const routers = [
                 element: <Notify />,
             },
             {
-                path: "/profile",
+                path: "/profile/:uid",
                 element: <Profile />,
             },
             {
